@@ -32,6 +32,9 @@ function App() {
   const [isJoined, setIsJoined] = useState(false);
   const [message, setMessage] = useState("");
 
+  const [leftOpen, setLeftOpen] = useState(false);
+  const [rightOpen, setRightOpen] = useState(false);
+
   const {
     users,
     channels,
@@ -66,10 +69,14 @@ function App() {
       {isJoined && (
         <>
           <div className="app">
-            <Header activeChannel={activeChannel} />
+            <Header
+              activeChannel={activeChannel}
+              onToggleLeft={() => setLeftOpen((v) => !v)}
+              onToggleRight={() => setRightOpen((v) => !v)}
+            />
 
             <div className="layout">
-              <aside className="sidebar-left">
+              <aside className={`sidebar-left ${leftOpen ? "open" : ""}`}>
                 <ChannelList
                   channels={channels}
                   activeChannel={activeChannel}
@@ -86,8 +93,7 @@ function App() {
                   sendMessage={handleSend}
                 />
               </main>
-
-              <aside className="sidebar-right">
+              <aside className={`sidebar-right ${rightOpen ? "open" : ""}`}>
                 <UserList users={users} />
               </aside>
             </div>

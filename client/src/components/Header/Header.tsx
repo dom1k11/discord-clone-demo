@@ -1,18 +1,26 @@
 import "./Header.css";
 type HeaderProps = {
   activeChannel: string;
+  onToggleLeft: () => void;
+  onToggleRight: () => void;
 };
 
-const Header = ({ activeChannel }: HeaderProps) => {
+const Header = ({
+  activeChannel,
+  onToggleLeft,
+  onToggleRight,
+}: HeaderProps) => {
   return (
     <header className="header">
-      <div className="header-left">
-        <span className="channel-hash">#</span>
-        <span className="channel-name">{activeChannel || "welcome"}</span>
-      </div>
+      <button className="header-btn header-btn-left" onClick={onToggleLeft}>
+        ☰
+      </button>
 
-      <div className="header-center">Discord Clone</div>
-      <div className="header-right" />
+      <div className="header-center">#{activeChannel || "welcome"}</div>
+
+      <button className="header-btn header-btn-right" onClick={onToggleRight}>
+        👥
+      </button>
     </header>
   );
 };
