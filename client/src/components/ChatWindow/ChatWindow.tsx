@@ -16,29 +16,33 @@ const ChatWindow = ({
   return (
     <div className="chat-container">
       <div className="chat-messages">
-        {messages.map((msg) => (
-          <div className="chat-message" key={msg.id}>
-            <img
-              className="avatar"
-              src={`https://api.dicebear.com/7.x/identicon/svg?seed=${msg.userId}`}
-              alt="avatar"
-            />
-
-            <div className="message-content">
-              <div className="message-header">
-                <span className="author" title={msg.username}>
-                  {msg.username}
-                </span>
-
-                <span className="time">
-                  {new Date(msg.createdAt).toLocaleTimeString()}
-                </span>
-              </div>
-
-              <div className="text">{msg.message}</div>
-            </div>
+        {messages.length === 0 ? (
+          <div className="chat-empty">
+            <h3>Be the first one</h3>
+            <p>Start the conversation by sending a message.</p>
           </div>
-        ))}
+        ) : (
+          messages.map((msg) => (
+            <div className="chat-message" key={msg.id}>
+              <img
+                className="avatar"
+                src={`https://api.dicebear.com/7.x/identicon/svg?seed=${msg.userId}`}
+                alt="avatar"
+              />
+
+              <div className="message-content">
+                <div className="message-header">
+                  <span className="author">{msg.username}</span>
+                  <span className="time">
+                    {new Date(msg.createdAt).toLocaleTimeString()}
+                  </span>
+                </div>
+
+                <div className="text">{msg.message}</div>
+              </div>
+            </div>
+          ))
+        )}
       </div>
 
       <form className="chat-input" onSubmit={sendMessage}>

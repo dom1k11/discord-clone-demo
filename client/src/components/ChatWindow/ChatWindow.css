@@ -114,3 +114,25 @@
   opacity: 0.5;
   cursor: default;
 }
+
+.chat-empty {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+  color: var(--text-muted);
+  gap: 6px;
+}
+
+.chat-empty h3 {
+  font-size: var(--text-lg);
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+.chat-empty p {
+  font-size: var(--text-sm);
+}
