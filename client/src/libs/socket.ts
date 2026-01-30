@@ -1,7 +1,5 @@
-import { io } from 'socket.io-client'
+import { io } from "socket.io-client";
 
-const URL = 'http://localhost:8181'
-
-export const socket = io(URL, {
+export const socket = io(import.meta.env.VITE_SOCKET_URL || "http://localhost:8181", {
   autoConnect: false,
-})
+});
