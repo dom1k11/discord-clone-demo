@@ -1,0 +1,65 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  background: #1a1a1e;
+}
+
+.app {
+  height: 100%;
+  display: grid;
+  grid-template-rows: 56px 1fr;
+  overflow: hidden;
+}
+
+.header {
+  height: 56px;
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-subtle);
+
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+
+  padding: 0 16px;
+}
+
+.layout {
+  height: 100%;
+  display: grid;
+  grid-template-columns: 220px 1fr 240px;
+  background: #1e1f22;
+  overflow: hidden;
+}
+.sidebar-left {
+  border-right: 1px solid #333;
+  padding: 16px;
+  overflow-y: auto;
+}
+
+.sidebar-right {
+  border-left: 1px solid #333;
+  overflow-y: auto;
+}
+
+.chat-main {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+}
+
+.chat-messages {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.chat-input {
+  flex-shrink: 0;
+}

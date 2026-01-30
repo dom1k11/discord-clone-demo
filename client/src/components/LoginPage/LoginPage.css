@@ -1,0 +1,34 @@
+.login-page {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  height: 100vh;
+}
+
+.login-left {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--bg-primary);
+}
+
+.login-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 4rem;
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+}
+
+.login-right h2 {
+  font-size: var(--text-2xl);
+  margin-bottom: 1rem;
+}
+
+.login-right p {
+  max-width: 420px;
+  font-size: 1.1rem;
+  opacity: 0.85;
+}

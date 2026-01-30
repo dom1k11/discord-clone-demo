@@ -1,0 +1,41 @@
+.channel-list {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.channel-footer {
+  margin-top: auto;
+  padding-top: var(--space-lg);
+  font-size: 0.9rem;
+  color: #aaa; 
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.channel-item {
+  all: unset;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+
+  padding: 10px;
+  border-radius: var(--radius-sm);
+
+  color: var(--text-faded);
+  font-size: var(--text-md);
+}
+
+.channel-item:hover {
+  background: var(--bg-hover);
+  color: var(--text-primary);
+}
+
+.channel-item.active {
+  background: var(--bg-active);
+  color: var(--text-primary);
+  font-weight: 500;
+}
