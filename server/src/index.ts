@@ -6,6 +6,7 @@ import { initializeChannel, Channel } from "./services/chat/channels";
 import { buildMessage, ChatMessage } from "./services/chat/messages";
 import { generateRandomId } from "./utils/generateRandomNumber";
 import { initializeStore } from "./services/chat/sessions";
+import { CORS_ORIGIN, CORS_HEADERS, CORS_METHODS } from "./cors_config";
 
 const app = express();
 const server = http.createServer(app);
@@ -14,16 +15,19 @@ const port = Number(process.env.PORT) || 8181;
 
 const io = new Server(server, {
   cors: {
-    origin: [
-      "http://localhost:5173",
-      "http://localhost:4173",
-      "https://piehost.com",
-    ],
+    origin: CORS_ORIGIN,
+    methods: CORS_METHODS,
+    allowedHeaders: CORS_HEADERS,
   },
 });
 
-const CHANNEL_NAMES = ["welcome", "general", "react", "learners", "casual",
-"trololo"
+const CHANNEL_NAMES = [
+  "welcome",
+  "general",
+  "react",
+  "learners",
+  "casual",
+  "trololo",
 ];
 const WELCOME_CHANNEL = "welcome";
 
