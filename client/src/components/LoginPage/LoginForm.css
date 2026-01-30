@@ -58,3 +58,16 @@
   opacity: 0.6;
   cursor: not-allowed;
 }
+
+@media (max-width: 480px) {
+  .login-container {
+    max-width: 100%;
+    padding: 1.5rem 1.25rem;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .login-container h1 {
+    font-size: 1.2rem;
+  }
+}
