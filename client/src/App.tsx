@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useChat } from "./hooks/useChat";
 import "./App.css";
-
 import ChannelList from "./components/ChannelList/ChannelList";
 import UserList from "./components/UserList/UserList";
 import ChatWindow from "./components/ChatWindow/ChatWindow";
@@ -29,7 +28,6 @@ export type User = {
 
 function App() {
   const [username, setUsername] = useState("");
-  const [isJoined, setIsJoined] = useState(false);
   const [message, setMessage] = useState("");
 
   const [leftOpen, setLeftOpen] = useState(false);
@@ -43,11 +41,11 @@ function App() {
     join,
     sendMessage,
     selectChannel,
+    isConnected,
   } = useChat();
 
   function handleJoin() {
     join(username);
-    setIsJoined(true);
   }
 
   function handleSend(e: React.FormEvent) {
@@ -58,7 +56,7 @@ function App() {
 
   return (
     <>
-      {!isJoined && (
+      {!isConnected && (
         <LoginPage
           username={username}
           logIn={(e) => setUsername(e.target.value)}
@@ -66,7 +64,7 @@ function App() {
         />
       )}
 
-      {isJoined && (
+      {isConnected && (
         <>
           <div className="app">
             <Header
