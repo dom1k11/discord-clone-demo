@@ -1,4 +1,5 @@
 import "./UserList.css";
+import "../../animations.css"
 import type { User } from "../../App";
 type UserListProps = {
   users: User[];
@@ -6,7 +7,7 @@ type UserListProps = {
 
 const UserList = ({ users }: UserListProps) => {
   return (
-    <div className="user-list">
+    <div className="user-list slide-in-right">
       <div className="user-list-title">
         Online — {users.filter((u) => u.connected).length}
       </div>

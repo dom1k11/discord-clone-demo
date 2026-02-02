@@ -27,8 +27,7 @@ export type User = {
 };
 
 function App() {
-  const [username, setUsername] = useState("");
-  const [message, setMessage] = useState("");
+  const [username, setUsername] = useState("");  const [message, setMessage] = useState("");
 
   const [leftOpen, setLeftOpen] = useState(false);
   const [rightOpen, setRightOpen] = useState(false);
@@ -41,7 +40,7 @@ function App() {
     join,
     sendMessage,
     selectChannel,
-    isConnected,
+    isConnected
   } = useChat();
 
   function handleJoin() {

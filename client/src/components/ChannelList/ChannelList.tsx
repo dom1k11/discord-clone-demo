@@ -1,4 +1,6 @@
 import "./ChannelList.css";
+import "../../animations.css"
+
 import type { Channel } from "../../App";
 
 type ChannelListProps = {
@@ -15,7 +17,7 @@ const ChannelList = ({
   username,
 }: ChannelListProps) => {
   return (
-    <div className="channel-list">
+    <div className="channel-list slide-in-left">
       {channels.map((channel) => (
         <button
           key={channel.name}

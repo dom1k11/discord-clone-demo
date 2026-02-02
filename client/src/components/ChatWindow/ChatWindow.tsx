@@ -1,4 +1,5 @@
 import "./ChatWindow.css";
+import "../../animations.css";
 import type { ChatMessage } from "../../App";
 type ChatWindowProps = {
   messages: ChatMessage[];
@@ -15,38 +16,45 @@ const ChatWindow = ({
 }: ChatWindowProps) => {
   return (
     <div className="chat-container">
-      <div className="chat-messages">
+      <div className="chat-messages slide-in-left">
         {messages.length === 0 ? (
-          <div className="chat-empty">
+          <div className="chat-empty slide-in-bottom">
             <h3>Be the first one</h3>
             <p>Start the conversation by sending a message.</p>
           </div>
         ) : (
-          messages.map((msg) => (
-            <div className="chat-message" key={msg.id}>
-              <img
-                className="avatar"
-                src={`https://api.dicebear.com/7.x/identicon/svg?seed=${msg.userId}`}
-                alt="avatar"
-              />
+          messages.map((msg, index) => {
+            const isLast = index === messages.length - 1;
 
-              <div className="message-content">
-                <div className="message-header">
-                  <span className="author">{msg.username}</span>
-                  <span className="time">
-                    {new Date(msg.createdAt).toLocaleTimeString()}
-                  </span>
+            return (
+              <div
+                className={`chat-message ${isLast ? "message-new" : ""}`}
+                key={msg.id}
+              >
+                <img
+                  className="avatar"
+                  src={`https://api.dicebear.com/7.x/identicon/svg?seed=${msg.userId}`}
+                  alt="avatar"
+                />
+
+                <div className="message-content">
+                  <div className="message-header">
+                    <span className="author">{msg.username}</span>
+                    <span className="time">
+                      {new Date(msg.createdAt).toLocaleTimeString()}
+                    </span>
+                  </div>
+
+                  <div className="text">{msg.message}</div>
                 </div>
-
-                <div className="text">{msg.message}</div>
               </div>
-            </div>
-          ))
+            );
+          })
         )}
       </div>
 
       <form className="chat-input" onSubmit={sendMessage}>
-        <div className="input-wrapper">
+        <div className="input-wrapper slide-in-top">
           <input
             value={message}
             onChange={(e) => setMessage(e.target.value)}

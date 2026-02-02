@@ -136,3 +136,20 @@
 .chat-empty p {
   font-size: var(--text-sm);
 }
+
+
+
+.chat-message {
+  animation: messagePop 0.28s ease-out forwards;
+}
+
+@keyframes messagePop {
+  from {
+    transform: translateY(16px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

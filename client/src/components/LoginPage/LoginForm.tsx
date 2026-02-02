@@ -1,4 +1,5 @@
 import "./LoginForm.css";
+import "../../animations.css";
 
 type LoginFormProps = {
   username: string;
@@ -8,7 +9,7 @@ type LoginFormProps = {
 
 const LoginForm = ({ username, logIn, join }: LoginFormProps) => {
   return (
-    <div className="login-container">
+    <div className="login-container slide-in-left">
       <h1>Join server</h1>
 
       <label>
