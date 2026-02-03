@@ -27,7 +27,6 @@ const CHANNEL_NAMES = [
   "react",
   "learners",
   "casual",
-  "trololo",
 ];
 const WELCOME_CHANNEL = "welcome";
 

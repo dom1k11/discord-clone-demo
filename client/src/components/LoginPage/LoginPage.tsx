@@ -1,12 +1,7 @@
 import LoginForm from "./LoginForm";
 import "./LoginPage.css";
 import "../../animations.css";
-
-type LoginPageProps = {
-  username: string;
-  logIn: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  join: () => void;
-};
+import type { LoginPageProps } from "../../types/types";
 
 const LoginPage = ({ username, logIn, join }: LoginPageProps) => {
   return (

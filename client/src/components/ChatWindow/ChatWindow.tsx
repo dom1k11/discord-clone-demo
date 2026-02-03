@@ -1,12 +1,6 @@
 import "./ChatWindow.css";
 import "../../animations.css";
-import type { ChatMessage } from "../../App";
-type ChatWindowProps = {
-  messages: ChatMessage[];
-  message: string;
-  sendMessage: (e: React.FormEvent<HTMLFormElement>) => void;
-  setMessage: React.Dispatch<React.SetStateAction<string>>;
-};
+import type { ChatWindowProps } from "../../types/types";
 
 const ChatWindow = ({
   messages,
